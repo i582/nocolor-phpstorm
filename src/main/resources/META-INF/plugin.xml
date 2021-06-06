@@ -1,0 +1,63 @@
+<idea-plugin>
+  <id>org.vk.nocolor</id>
+  <name>NoColor</name>
+  <vendor email="p.makhnev@corp.vk.com" url="https://vk.com/petrmakhnev">Petr Makhnev</vendor>
+
+  <description><![CDATA[
+<p><b>About</b></p>
+<p>NoColor is a PhpStorm plugin that allows the IDE to understand the concept of colors for PHP.</p>
+<br>
+<p><b>Features</b></p>
+<ul>
+  <li>Quick jump to the rule in the palette;</li>
+  <li>Color checks: duplicate colors, undefined colors;</li>
+  <li>Autocomplete color names.</li>
+</ul>
+<br>
+<p><b>Homepage</b></p>
+<p><a href="https://github.com/i582/nocolor-phpstorm">GitHub</a></p>
+
+]]></description>
+
+  <!-- please see https://plugins.jetbrains.com/docs/intellij/plugin-compatibility.html
+       on how to target different products -->
+  <depends>com.jetbrains.php</depends>
+  <depends>org.jetbrains.plugins.yaml</depends>
+  <depends>com.intellij.modules.platform</depends>
+
+  <extensions defaultExtensionNs="com.intellij">
+    <!-- Add your extensions here -->
+    <postStartupActivity
+      implementation="com.vk.nocolor.configuration.NoColorStartupActivity"/>
+
+    <annotator
+      language="PHP"
+      implementationClass="com.vk.nocolor.highlighting.NoColorAnnotator"/>
+
+    <codeInsight.lineMarkerProvider
+      language="PHP"
+      implementationClass="com.vk.nocolor.completion.NoColorLineMarkerProvider"/>
+
+    <psi.referenceContributor
+      order="first"
+      implementation="com.vk.nocolor.completion.NoColorPhpReferenceContributor"/>
+
+    <completion.contributor
+      language="PHP" order="first"
+      implementationClass="com.vk.nocolor.completion.NoColorCompletionContributor"/>
+
+    <localInspection language="PHP" groupName="NoColor plugin" shortName="UndefinedColor"
+                     displayName="Undefined color"
+                     enabledByDefault="true" level="WARNING"
+                     implementationClass="com.vk.nocolor.inspections.UndefinedColor"/>
+
+    <localInspection language="PHP" groupName="NoColor plugin" shortName="DuplicatedColor"
+                     displayName="Duplicated color"
+                     enabledByDefault="true" level="WARNING"
+                     implementationClass="com.vk.nocolor.inspections.DuplicatedColor"/>
+  </extensions>
+
+  <actions>
+    <!-- Add your actions here -->
+  </actions>
+</idea-plugin>
