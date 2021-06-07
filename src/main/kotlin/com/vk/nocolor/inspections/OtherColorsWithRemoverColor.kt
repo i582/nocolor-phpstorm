@@ -47,7 +47,7 @@ class OtherColorsWithRemoverColor : PhpInspection() {
 
                 holder.registerProblem(
                     docColor.value,
-                    "The function contains the color remover, any other colors for this function are meaningless"
+                    "The function contains the 'remover' color, any other colors for this function are meaningless"
                 )
             }
         }

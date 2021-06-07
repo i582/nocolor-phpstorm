@@ -36,12 +36,18 @@ class NoColorDocumentationProvider : DocumentationProvider {
             val color = element.text
             if (color == "remover") {
                 return """
-                    A special <b>embedded</b> color that removes a function 
-                    from the call graph, thereby separating connected 
-                    components.
+                    A special <b>embedded</b> color that removes the function from 
+                    validation.
 
-                    Any color mixed with <b>remover</b> will give a 
-                    <b>transparent</b> color.
+                    So, for example, if there is the following chain of calls:
+                    
+                       f1<b>@highload</b> -> f2<b>@remover</b> -> f3<b>@no-highload</b>
+                    
+                    Then, during the check, only the functions <b>f1</b>and <b>f3</b> will 
+                    remain, the connection between them through <b>f2</b> will be lost.
+                    
+                    Used to separate strongly connected components in the call
+                    graph to improve validation performance.
                 """.trimIndent()
             }
 

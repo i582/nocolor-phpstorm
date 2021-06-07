@@ -4,7 +4,7 @@
 
 PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/i582/phpcolor/blob/master/docs/concept_of_colors.md) for PHP.
 
-See [nocolors](https://github.com/i582/phpcolor).
+See [NoColors](https://github.com/i582/phpcolor) tool.
 
 ## Features
 
@@ -14,22 +14,40 @@ See [nocolors](https://github.com/i582/phpcolor).
 
 - Autocomplete color names;
 
-  <img width="350" alt="image" src="https://user-images.githubusercontent.com/51853996/120945146-a2513f00-c740-11eb-92e1-6026706a9303.png">
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/121084637-9077a680-c7e9-11eb-91a8-f453f08a7392.png">
   
-- Color checks: duplicate colors, undefined colors, etc.;
+- Color checks: 
 
-  <img width="367" alt="image" src="https://user-images.githubusercontent.com/51853996/120945215-db89af00-c740-11eb-972c-871e46cabf22.png">
+  - Undefined colors:
 
-  <img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/120952603-12b58b80-c754-11eb-9588-f675c6446ea1.png">
+  <img width="450" alt="image" src="https://user-images.githubusercontent.com/51853996/121084750-b4d38300-c7e9-11eb-9f19-799e1d0095cc.png">
 
-- Rules checks: order, structure, etc;
+  - Duplicated colors:
+
+  <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/121085486-95892580-c7ea-11eb-8b28-f0cc941d453b.png">
+
+  - Several colors in one `@color` tag:
+
+  <img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/121085605-c4070080-c7ea-11eb-8262-c351e1089ecc.png">
+
+- Rules checks:
+
+  - Order:
 
   <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/120958102-a6408980-c75f-11eb-9b00-0d6d6f4ac722.png">
 
-- Tips and checks associated with the special color remover.
+  - Structure:
 
-  <img width="550" alt="image" src="https://user-images.githubusercontent.com/51853996/120994718-6bede100-c78d-11eb-9750-87c85b3907f6.png">
+  <img width="700" alt="image" src="https://user-images.githubusercontent.com/51853996/121086009-4ee7fb00-c7eb-11eb-9999-2079f59ee3cb.png">
 
+- Tips and checks associated with the special color `remover`:
+
+  - `remover` color description:
+
+  <img width="580" alt="image" src="https://user-images.githubusercontent.com/51853996/121084514-6625e900-c7e9-11eb-8780-2ac677cc675a.png">
+  
+  - Other colors with `remover`:
+  
   <img width="650" alt="image" src="https://user-images.githubusercontent.com/51853996/120994544-3ea13300-c78d-11eb-98f2-2ca44eec80b2.png">
 
 ## License
