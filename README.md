@@ -19,4 +19,4 @@ See [nocolor](https://github.com/i582/phpcolor).
 
 ## License
 
-This project is under the **MIT License**. See the [LICENSE](https://github.com/i582/phpcolor/blob/master/LICENSE) file for the full license text.
+This project is under the **MIT License**. See the [LICENSE](	) file for the full license text.

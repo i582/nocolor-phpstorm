@@ -60,6 +60,11 @@
                      displayName="Several colors in the @color tag"
                      enabledByDefault="true" level="WARNING"
                      implementationClass="com.vk.nocolor.inspections.PossibleSeveralColors"/>
+
+    <localInspection language="PHP" groupName="NoColor plugin" shortName="EmptyColorTag"
+                     displayName="Empty @color tag"
+                     enabledByDefault="true" level="WARNING"
+                     implementationClass="com.vk.nocolor.inspections.EmptyColorTag"/>
   </extensions>
 
   <actions>
