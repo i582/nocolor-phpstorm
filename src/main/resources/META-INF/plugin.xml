@@ -11,6 +11,7 @@
 <ul>
   <li>Quick jump to the rule in the palette;</li>
   <li>Color checks: duplicate colors, undefined colors, etc.;</li>
+  <li>Rules checks: order, structure, etc.;</li>
   <li>Autocomplete color names.</li>
 </ul>
 <br>
@@ -65,6 +66,11 @@
                      displayName="Empty @color tag"
                      enabledByDefault="true" level="WARNING"
                      implementationClass="com.vk.nocolor.inspections.EmptyColorTag"/>
+
+    <localInspection language="yaml" groupName="NoColor plugin" shortName="InvalidRuleOrder"
+                     displayName="Invalid rule order"
+                     enabledByDefault="true" level="WARNING"
+                     implementationClass="com.vk.nocolor.inspections.InvalidRuleOrder"/>
   </extensions>
 
   <actions>
