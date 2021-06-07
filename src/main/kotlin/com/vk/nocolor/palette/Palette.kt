@@ -6,6 +6,8 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.search.FilenameIndex
 import com.intellij.psi.search.GlobalSearchScope
+import com.jetbrains.php.lang.psi.elements.Function
+import com.jetbrains.php.lang.psi.elements.Method
 import com.jetbrains.php.lang.psi.elements.PhpClass
 import com.jetbrains.php.lang.psi.elements.impl.ArrayCreationExpressionImpl
 import com.jetbrains.php.lang.psi.elements.impl.ArrayHashElementImpl
@@ -66,6 +68,8 @@ class Palette {
         const val defaultPaletteKphpConfigurationName = "KphpConfiguration.php"
         const val defaultConstKeyInKphpConfiguration = "FUNCTION_PALETTE"
 
+        const val specialColorRemover = "remover"
+
         val colorTags = arrayOf("@color", "@kphp-color")
 
         fun isColorTag(tag: String): Boolean {
@@ -83,6 +87,36 @@ class Palette {
             }
 
             return parts[0]
+        }
+
+        fun getColorsFromDoc(element: PsiElement): MutableMap<String, PsiElement> {
+            val docComment = when (element) {
+                is PhpClass -> {
+                    element.docComment
+                }
+                is Method -> {
+                    element.docComment
+                }
+                is Function -> {
+                    element.docComment
+                }
+                else -> return mutableMapOf()
+            } ?: return mutableMapOf()
+
+            val colors = mutableMapOf<String, PsiElement>()
+            for (colorTag in colorTags) {
+                val classDocColorElements = docComment.getTagElementsByName(colorTag)
+                for (classDocColorElement in classDocColorElements) {
+                    val color = getColorFromString(classDocColorElement.tagValue)
+                    if (color.isEmpty()) {
+                        continue
+                    }
+
+                    colors[color] = classDocColorElement
+                }
+            }
+
+            return colors
         }
     }
 

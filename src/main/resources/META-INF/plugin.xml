@@ -12,7 +12,8 @@
   <li>Quick jump to the rule in the palette;</li>
   <li>Color checks: duplicate colors, undefined colors, etc.;</li>
   <li>Rules checks: order, structure, etc.;</li>
-  <li>Autocomplete color names.</li>
+  <li>Autocomplete color names;</li>
+  <li>Tips and checks associated with the special color remover.</li>
 </ul>
 <br>
 <p><b>Homepage</b></p>
@@ -30,6 +31,10 @@
     <!-- Add your extensions here -->
     <postStartupActivity
       implementation="com.vk.nocolor.configuration.NoColorStartupActivity"/>
+
+    <lang.documentationProvider
+      language="PHP" order="first"
+      implementationClass="com.vk.nocolor.highlighting.NoColorDocumentationProvider"/>
 
     <annotator
       language="PHP"
@@ -66,6 +71,11 @@
                      displayName="Empty @color tag"
                      enabledByDefault="true" level="WARNING"
                      implementationClass="com.vk.nocolor.inspections.EmptyColorTag"/>
+
+    <localInspection language="PHP" groupName="NoColor plugin" shortName="OtherColorsWithRemoverColor"
+                     displayName="Other colors with remover color"
+                     enabledByDefault="true" level="WARNING"
+                     implementationClass="com.vk.nocolor.inspections.OtherColorsWithRemoverColor"/>
 
     <localInspection language="yaml" groupName="NoColor plugin" shortName="InvalidRuleOrder"
                      displayName="Invalid rule order"

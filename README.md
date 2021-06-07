@@ -19,9 +19,15 @@ See [nocolor](https://github.com/i582/phpcolor).
 
   <img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/120952603-12b58b80-c754-11eb-9588-f675c6446ea1.png">
 
-- Rules checks: order, structure, etc.
+- Rules checks: order, structure, etc;
 
   <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/120958102-a6408980-c75f-11eb-9b00-0d6d6f4ac722.png">
+
+- Tips and checks associated with the special color remover.
+
+  <img width="550" alt="image" src="https://user-images.githubusercontent.com/51853996/120994718-6bede100-c78d-11eb-9750-87c85b3907f6.png">
+
+  <img width="650" alt="image" src="https://user-images.githubusercontent.com/51853996/120994544-3ea13300-c78d-11eb-98f2-2ca44eec80b2.png">
 
 ## License
 

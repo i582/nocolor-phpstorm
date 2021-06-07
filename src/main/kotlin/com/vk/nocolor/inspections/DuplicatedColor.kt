@@ -55,14 +55,14 @@ class DuplicatedColor : PhpInspection() {
                     return
                 }
 
-                val classDocColors = getColorsFromDoc(element)
+                val classDocColors = Palette.getColorsFromDoc(element)
 
                 for (method in element.methods) {
                     if (method.docComment == null) {
                         continue
                     }
 
-                    val docColors = getColorsFromDoc(method)
+                    val docColors = Palette.getColorsFromDoc(method)
 
                     for (docColor in docColors) {
                         if (classDocColors.containsKey(docColor.key)) {
@@ -74,32 +74,5 @@ class DuplicatedColor : PhpInspection() {
                 }
             }
         }
-    }
-
-    private fun getColorsFromDoc(element: PsiElement): MutableMap<String, PsiElement> {
-        val docComment = when (element) {
-            is PhpClass -> {
-                element.docComment
-            }
-            is Method -> {
-                element.docComment
-            }
-            else -> return mutableMapOf()
-        } ?: return mutableMapOf()
-
-        val colors = mutableMapOf<String, PsiElement>()
-        for (colorTag in Palette.colorTags) {
-            val classDocColorElements = docComment.getTagElementsByName(colorTag)
-            for (classDocColorElement in classDocColorElements) {
-                val color = Palette.getColorFromString(classDocColorElement.tagValue)
-                if (color.isEmpty()) {
-                    continue
-                }
-
-                colors[color] = classDocColorElement
-            }
-        }
-
-        return colors
     }
 }
