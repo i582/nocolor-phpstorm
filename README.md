@@ -17,6 +17,8 @@ See [nocolor](https://github.com/i582/phpcolor).
 
   <img width="367" alt="phpdoc types" src="https://user-images.githubusercontent.com/51853996/120945215-db89af00-c740-11eb-972c-871e46cabf22.png">
 
+  <img width="500" alt="phpdoc types" src="https://user-images.githubusercontent.com/51853996/120952603-12b58b80-c754-11eb-9588-f675c6446ea1.png">
+
 ## License
 
 This project is under the **MIT License**. See the [LICENSE](	) file for the full license text.

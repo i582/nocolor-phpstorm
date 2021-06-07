@@ -66,8 +66,10 @@ class Palette {
         const val defaultPaletteKphpConfigurationName = "KphpConfiguration.php"
         const val defaultConstKeyInKphpConfiguration = "FUNCTION_PALETTE"
 
+        val colorTags = arrayOf("@color", "@kphp-color")
+
         fun isColorTag(tag: String): Boolean {
-            return tag in arrayOf("@color", "@kphp-color")
+            return tag in colorTags
         }
 
         fun getColorFromString(str: String): String {
