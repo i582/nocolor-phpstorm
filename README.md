@@ -44,11 +44,11 @@ See [NoColors](https://github.com/i582/phpcolor) tool.
 
   - `remover` color description:
 
-  <img width="580" alt="image" src="https://user-images.githubusercontent.com/51853996/121084514-6625e900-c7e9-11eb-8780-2ac677cc675a.png">
+    <img width="580" alt="image" src="https://user-images.githubusercontent.com/51853996/121084514-6625e900-c7e9-11eb-8780-2ac677cc675a.png">
   
   - Other colors with `remover`:
   
-  <img width="650" alt="image" src="https://user-images.githubusercontent.com/51853996/120994544-3ea13300-c78d-11eb-98f2-2ca44eec80b2.png">
+    <img width="650" alt="image" src="https://user-images.githubusercontent.com/51853996/120994544-3ea13300-c78d-11eb-98f2-2ca44eec80b2.png">
 
 ## License
 
