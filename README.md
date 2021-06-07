@@ -1,7 +1,10 @@
-# nocolor-phpstorm
+<img width="295" alt="image" src="https://user-images.githubusercontent.com/51853996/121010397-0a823e00-c79e-11eb-8047-d6f3130edee5.png">
+
+# nocolors-phpstorm
+
 PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/i582/phpcolor/blob/master/docs/concept_of_colors.md) for PHP.
 
-See [nocolor](https://github.com/i582/phpcolor).
+See [nocolors](https://github.com/i582/phpcolor).
 
 ## Features
 
