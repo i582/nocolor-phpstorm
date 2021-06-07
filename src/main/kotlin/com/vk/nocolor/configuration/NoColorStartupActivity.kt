@@ -8,6 +8,10 @@ import com.vk.nocolor.palette.PaletteSingleton
 
 class NoColorStartupActivity : StartupActivity {
     override fun runActivity(project: Project) {
-        PaletteSingleton.instance.palette.init(Palette.defaultPalettePath, project)
+        PaletteSingleton.instance.palette.init(
+            Palette.defaultPaletteYamlName,
+            Palette.defaultPaletteKphpConfigurationName,
+            project
+        )
     }
 }

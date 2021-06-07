@@ -6,6 +6,10 @@ import com.intellij.psi.PsiElement
 import com.intellij.psi.PsiFile
 import com.intellij.psi.search.FilenameIndex
 import com.intellij.psi.search.GlobalSearchScope
+import com.jetbrains.php.lang.psi.elements.PhpClass
+import com.jetbrains.php.lang.psi.elements.impl.ArrayCreationExpressionImpl
+import com.jetbrains.php.lang.psi.elements.impl.ArrayHashElementImpl
+import com.jetbrains.php.lang.psi.visitors.PhpRecursiveElementVisitor
 import org.jetbrains.annotations.NotNull
 import org.jetbrains.yaml.psi.YAMLKeyValue
 import org.jetbrains.yaml.psi.YamlRecursivePsiElementVisitor
@@ -30,11 +34,20 @@ class Palette {
     private lateinit var fileName: String
     private var colors: MutableSet<String> = mutableSetOf()
     private var file: PsiFile? = null
+    private var fromYaml: Boolean = true
 
-    fun init(fileName: String, project: Project) {
-        val palettePsiFiles = FilenameIndex.getFilesByName(project, fileName, GlobalSearchScope.allScope(project))
-        this.fileName = fileName
-        this.file = if (palettePsiFiles.isEmpty()) null else palettePsiFiles[0]
+    fun init(fileNameYaml: String, fileNamePhp: String, project: Project) {
+        val paletteYamlPsiFiles = FilenameIndex.getFilesByName(project, fileNameYaml, GlobalSearchScope.allScope(project))
+        val palettePhpPsiFiles = FilenameIndex.getFilesByName(project, fileNamePhp, GlobalSearchScope.allScope(project))
+
+        if (paletteYamlPsiFiles.isNotEmpty()) {
+            this.fileName = fileNameYaml
+            this.file = paletteYamlPsiFiles[0]
+        } else if (palettePhpPsiFiles.isNotEmpty()) {
+            this.fileName = fileNamePhp
+            this.file = palettePhpPsiFiles[0]
+            this.fromYaml = false
+        }
 
         this.getAllColorsFromFile()
         this.addAsyncListener()
@@ -49,10 +62,12 @@ class Palette {
     }
 
     companion object {
-        const val defaultPalettePath = "palette.yaml"
+        const val defaultPaletteYamlName = "palette.yaml"
+        const val defaultPaletteKphpConfigurationName = "KphpConfiguration.php"
+        const val defaultConstKeyInKphpConfiguration = "FUNCTION_PALETTE"
 
         fun isColorTag(tag: String): Boolean {
-            return tag in arrayOf("@color")
+            return tag in arrayOf("@color", "@kphp-color")
         }
 
         fun getColorFromString(str: String): String {
@@ -83,30 +98,84 @@ class Palette {
         return targetsRules
     }
 
-    fun visitColorsInFile(cb: (String, PsiElement) -> Boolean) {
+    private fun visitColorsInFile(cb: (String, PsiElement) -> Boolean) {
         if (file == null) {
             return
         }
 
-        file!!.accept(object : YamlRecursivePsiElementVisitor() {
-            override fun visitKeyValue(@NotNull keyValue: YAMLKeyValue) {
-                super.visitKeyValue(keyValue)
+        if (fromYaml) {
+            file!!.accept(object : YamlRecursivePsiElementVisitor() {
+                override fun visitKeyValue(@NotNull keyValue: YAMLKeyValue) {
+                    super.visitKeyValue(keyValue)
 
-                val keyNode = keyValue.key
-                val keyTextWithQuotes = keyNode?.text ?: return
-                if (keyTextWithQuotes.length == 2) {
-                    return
+                    val keyNode = keyValue.key
+                    val keyTextWithQuotes = keyNode?.text ?: return
+                    handleRawKeyText(keyTextWithQuotes, keyNode, cb)
                 }
+            })
+            return
+        }
 
-                val keyText = keyTextWithQuotes.slice(1 until keyTextWithQuotes.length - 1)
-                val rawColors = keyText.split(' ')
-                for (color in rawColors) {
-                    if (!cb(color, keyNode)) {
-                        break
+        var arrayWithColors: PsiElement? = null
+
+        file!!.accept(object : PhpRecursiveElementVisitor() {
+            override fun visitElement(element: PsiElement) {
+                super.visitElement(element)
+
+                if (element is PhpClass) {
+                    for (field in element.fields) {
+                        if (!field.isConstant) {
+                            continue
+                        }
+
+                        if (field.name != defaultConstKeyInKphpConfiguration) {
+                            continue
+                        }
+
+                        arrayWithColors = field.defaultValue
                     }
                 }
             }
         })
+
+        if (arrayWithColors == null) {
+            return
+        }
+
+        arrayWithColors!!.accept(object : PhpRecursiveElementVisitor() {
+            override fun visitElement(element: PsiElement) {
+                super.visitElement(element)
+
+                if (element is ArrayCreationExpressionImpl) {
+                    val groupValues = element.parameters
+                    for (groupValue in groupValues) {
+                        if (groupValue is ArrayHashElementImpl) {
+                            val key = groupValue.key ?: continue
+                            handleRawKeyText(key.text, key, cb)
+                        }
+                    }
+                }
+            }
+        })
+    }
+
+    private fun handleRawKeyText(
+        keyTextWithQuotes: String,
+        keyNode: PsiElement,
+        cb: (String, PsiElement) -> Boolean,
+    ) {
+        // if empty "" or ''
+        if (keyTextWithQuotes.length == 2) {
+            return
+        }
+
+        val keyText = keyTextWithQuotes.slice(1 until keyTextWithQuotes.length - 1)
+        val rawColors = keyText.split(' ')
+        for (color in rawColors) {
+            if (!cb(color, keyNode)) {
+                break
+            }
+        }
     }
 
     private fun addAsyncListener() {
@@ -132,5 +201,6 @@ class Palette {
             colors.add(color)
             true
         }
+        colors.add("remover")
     }
 }
