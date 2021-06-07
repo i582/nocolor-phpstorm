@@ -6,7 +6,6 @@ import com.intellij.psi.PsiElementVisitor
 import com.jetbrains.php.lang.documentation.phpdoc.psi.PhpDocComment
 import com.jetbrains.php.lang.documentation.phpdoc.psi.tags.PhpDocTag
 import com.jetbrains.php.lang.inspections.PhpInspection
-import com.jetbrains.php.lang.psi.elements.Method
 import com.jetbrains.php.lang.psi.elements.PhpClass
 import com.jetbrains.php.lang.psi.visitors.PhpElementVisitor
 
@@ -67,7 +66,7 @@ class DuplicatedColor : PhpInspection() {
                     for (docColor in docColors) {
                         if (classDocColors.containsKey(docColor.key)) {
                             holder.registerProblem(
-                                docColor.value, "The color '${docColor.key}' has already been declared for the class"
+                                docColor.value, "The method already implicitly has a '${docColor.key}' color, since it is set in the PHPDoc for the '${element.name}' class"
                             )
                         }
                     }
