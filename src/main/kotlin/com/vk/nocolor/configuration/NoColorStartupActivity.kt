@@ -9,6 +9,5 @@ import com.vk.nocolor.palette.PaletteSingleton
 class NoColorStartupActivity : StartupActivity {
     override fun runActivity(project: Project) {
         PaletteSingleton.instance.palette.init(Palette.defaultPalettePath, project)
-        println(PaletteSingleton.instance.palette.getColors())
     }
 }

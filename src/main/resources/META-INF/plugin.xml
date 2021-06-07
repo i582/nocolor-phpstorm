@@ -10,7 +10,7 @@
 <p><b>Features</b></p>
 <ul>
   <li>Quick jump to the rule in the palette;</li>
-  <li>Color checks: duplicate colors, undefined colors;</li>
+  <li>Color checks: duplicate colors, undefined colors, etc.;</li>
   <li>Autocomplete color names.</li>
 </ul>
 <br>
@@ -55,6 +55,11 @@
                      displayName="Duplicated color"
                      enabledByDefault="true" level="WARNING"
                      implementationClass="com.vk.nocolor.inspections.DuplicatedColor"/>
+
+    <localInspection language="PHP" groupName="NoColor plugin" shortName="PossibleSeveralColors"
+                     displayName="Several colors in the @color tag"
+                     enabledByDefault="true" level="WARNING"
+                     implementationClass="com.vk.nocolor.inspections.PossibleSeveralColors"/>
   </extensions>
 
   <actions>

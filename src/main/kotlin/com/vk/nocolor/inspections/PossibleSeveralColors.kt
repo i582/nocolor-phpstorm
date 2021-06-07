@@ -9,27 +9,24 @@ import com.jetbrains.php.lang.psi.visitors.PhpElementVisitor
 import com.vk.nocolor.palette.Palette
 import com.vk.nocolor.palette.PaletteSingleton
 
-class UndefinedColor : PhpInspection() {
+class PossibleSeveralColors : PhpInspection() {
     override fun buildVisitor(holder: ProblemsHolder, isOnTheFly: Boolean): PsiElementVisitor {
         return object : PhpElementVisitor() {
 
             override fun visitPhpDocTag(tag: PhpDocTag?) {
-                if (tag == null) {
+                if (tag == null || !Palette.isColorTag(tag.name)) {
                     return
                 }
 
-                if (!Palette.isColorTag(tag.name)) {
+                val parts = tag.tagValue.split(" ")
+                if (parts.size < 2) {
                     return
                 }
 
-                val colorName = Palette.getColorFromString(tag.tagValue)
-                if (colorName.isEmpty()) {
-                    return
-                }
-
-                val containsName = PaletteSingleton.instance.palette.containsColor(colorName)
-                if (!containsName) {
-                    holder.registerProblem(tag, "Undefined color '$colorName'")
+                val secondPart = parts[1]
+                val containsName = PaletteSingleton.instance.palette.containsColor(secondPart)
+                if (containsName) {
+                    holder.registerProblem(tag, "In @color tag is prohibited more than one color. Please use multiple tags")
                 }
             }
         }

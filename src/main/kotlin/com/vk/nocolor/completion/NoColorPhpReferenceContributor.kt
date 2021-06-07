@@ -31,6 +31,10 @@ class NoColorPhpReferenceContributor : PsiReferenceContributor() {
                     if (tagColor.isEmpty()) {
                         return PsiReference.EMPTY_ARRAY
                     }
+                    val parts = tagNode.tagValue.split(" ")
+                    if (element.text in parts && parts[0] != element.text) {
+                        return PsiReference.EMPTY_ARRAY
+                    }
 
                     val property = TextRange(0, tagColor.length)
                     return arrayOf(NoColorPhpSimpleReference(element, property))
