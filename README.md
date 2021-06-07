@@ -1,4 +1,4 @@
-<img width="295" alt="image" src="https://user-images.githubusercontent.com/51853996/121010397-0a823e00-c79e-11eb-8047-d6f3130edee5.png">
+<img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/121088842-ffa3c980-c7ee-11eb-996e-3a71a527fa75.png">
 
 # nocolors-phpstorm
 
