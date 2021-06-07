@@ -20,25 +20,25 @@ See [NoColors](https://github.com/i582/phpcolor) tool.
 
   - Undefined colors:
 
-  <img width="450" alt="image" src="https://user-images.githubusercontent.com/51853996/121084750-b4d38300-c7e9-11eb-9f19-799e1d0095cc.png">
+    <img width="450" alt="image" src="https://user-images.githubusercontent.com/51853996/121084750-b4d38300-c7e9-11eb-9f19-799e1d0095cc.png">
 
   - Duplicated colors:
 
-  <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/121085486-95892580-c7ea-11eb-8b28-f0cc941d453b.png">
+    <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/121085486-95892580-c7ea-11eb-8b28-f0cc941d453b.png">
 
   - Several colors in one `@color` tag:
 
-  <img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/121085605-c4070080-c7ea-11eb-8262-c351e1089ecc.png">
+    <img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/121085605-c4070080-c7ea-11eb-8262-c351e1089ecc.png">
 
 - Rules checks:
 
   - Order:
 
-  <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/120958102-a6408980-c75f-11eb-9b00-0d6d6f4ac722.png">
+    <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/120958102-a6408980-c75f-11eb-9b00-0d6d6f4ac722.png">
 
   - Structure:
 
-  <img width="700" alt="image" src="https://user-images.githubusercontent.com/51853996/121086009-4ee7fb00-c7eb-11eb-9999-2079f59ee3cb.png">
+    <img width="700" alt="image" src="https://user-images.githubusercontent.com/51853996/121086009-4ee7fb00-c7eb-11eb-9999-2079f59ee3cb.png">
 
 - Tips and checks associated with the special color `remover`:
 
