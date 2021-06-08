@@ -239,4 +239,10 @@ class Palette {
         }
         colors.add("remover")
     }
+
+    fun initForTest() {
+        colors.add("highload")
+        colors.add("no-highload")
+        colors.add("sst")
+    }
 }

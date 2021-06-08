@@ -70,6 +70,13 @@ patchPluginXml {
       Initial version."""
 }
 
+sourceSets {
+    test {
+        resources {
+            srcDir 'src/test/fixtures'
+        }
+    }
+}
 test {
-    useJUnitPlatform()
+    exclude 'com/vk/nocolors/testing/infrastructure/**'
 }
