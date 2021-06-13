@@ -1,6 +1,6 @@
-<img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/121088842-ffa3c980-c7ee-11eb-996e-3a71a527fa75.png">
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/51853996/121817365-ac67c600-cc89-11eb-8470-400df6c3e1ef.png">
 
-# NoColors plugin for PHPStorm
+# NoColors plugin for PhpStorm
 
 PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/i582/phpcolor/blob/master/docs/concept_of_colors.md) for PHP.
 
