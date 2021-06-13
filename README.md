@@ -6,6 +6,18 @@ PhpStorm plugin that allows the IDE to understand the [concept of colors](https:
 
 See [NoColors](https://github.com/i582/phpcolor) tool.
 
+## Installation
+
+- Using IDE built-in plugin system:
+
+  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "NoColors"</kbd> >
+  <kbd>Install Plugin</kbd>
+
+- Manually:
+
+  Download the [latest release](https://github.com/i582/nocolors-phpstorm/releases/latest) and install it manually using
+  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
+
 ## Features
 
 - Quick jump to the rule in the palette;
