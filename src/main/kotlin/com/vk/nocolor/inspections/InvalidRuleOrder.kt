@@ -23,22 +23,22 @@ class InvalidRuleOrder : LocalInspectionTool() {
                     if (keys.size > 1) {
                         keys.forEachIndexed { index: Int, key: YAMLKeyValue ->
                             if (index != 0) {
-                                holder.registerProblem(key, "Each element in group must have only one key-value pair. Place this pair in a separate element of the array (add '- ' before the pair)")
+                                holder.registerProblem(key, "Each element in group must have only one" +
+                                        " key-value pair. Place this pair in a separate element of the array " +
+                                        "(add '- ' before the pair)")
                             }
                         }
                     }
-                    if (keys.isEmpty()) {
+                    if (keys.isEmpty() || keys.toTypedArray()[0].value == null) {
                         continue
                     }
 
                     val mainKey = keys.toTypedArray()[0]
-                    if (mainKey.value == null) {
-                        continue
-                    }
 
                     if (mainKey.value!! is YAMLQuotedText && mainKey.value!!.text.length == 2) {
                         if (!errorRuleFound) {
-                            holder.registerProblem(mainKey, "In the group, first there should be rules describing the error, and then the exclusion rules")
+                            holder.registerProblem(mainKey, "In the group, first there should be " +
+                                    "rules describing the error, and then the exclusion rules")
                         }
                     } else {
                         errorRuleFound = true

@@ -39,8 +39,14 @@ class Palette {
     private var fromYaml: Boolean = true
 
     fun init(fileNameYaml: String, fileNamePhp: String, project: Project) {
-        val paletteYamlPsiFiles = FilenameIndex.getFilesByName(project, fileNameYaml, GlobalSearchScope.allScope(project))
-        val palettePhpPsiFiles = FilenameIndex.getFilesByName(project, fileNamePhp, GlobalSearchScope.allScope(project))
+        val paletteYamlPsiFiles = FilenameIndex.getFilesByName(
+            project, fileNameYaml,
+            GlobalSearchScope.allScope(project)
+        )
+        val palettePhpPsiFiles = FilenameIndex.getFilesByName(
+            project, fileNamePhp,
+            GlobalSearchScope.allScope(project)
+        )
 
         if (paletteYamlPsiFiles.isNotEmpty()) {
             this.fileName = fileNameYaml
@@ -160,11 +166,7 @@ class Palette {
 
                 if (element is PhpClass) {
                     for (field in element.fields) {
-                        if (!field.isConstant) {
-                            continue
-                        }
-
-                        if (field.name != defaultConstKeyInKphpConfiguration) {
+                        if (!field.isConstant || field.name != defaultConstKeyInKphpConfiguration) {
                             continue
                         }
 
@@ -233,7 +235,8 @@ class Palette {
 
     private fun getAllColorsFromFile() {
         colors.clear()
-        visitColorsInFile { color: String, _: PsiElement -> Boolean
+        visitColorsInFile { color: String, _: PsiElement ->
+            Boolean
             colors.add(color)
             true
         }

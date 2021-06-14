@@ -2,7 +2,9 @@
 
 # NoColors plugin for PhpStorm
 
+<!-- Plugin description -->
 PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/i582/phpcolor/blob/master/docs/concept_of_colors.md) for PHP.
+<!-- Plugin description end -->
 
 See [NoColors](https://github.com/i582/phpcolor) tool.
 
