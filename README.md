@@ -1,4 +1,4 @@
-<img width="350" alt="image" src="https://user-images.githubusercontent.com/51853996/121817365-ac67c600-cc89-11eb-8470-400df6c3e1ef.png">
+<img width="350" alt="image" src="https://user-images.githubusercontent.com/51853996/122410502-a543ff00-cf8c-11eb-9b23-6b0c6e900f1e.png">
 
 # NoColor plugin for PhpStorm
 
