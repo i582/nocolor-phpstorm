@@ -1,23 +1,23 @@
 <img width="350" alt="image" src="https://user-images.githubusercontent.com/51853996/121817365-ac67c600-cc89-11eb-8470-400df6c3e1ef.png">
 
-# NoColors plugin for PhpStorm
+# NoColor plugin for PhpStorm
 
 <!-- Plugin description -->
 PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/i582/phpcolor/blob/master/docs/concept_of_colors.md) for PHP.
 <!-- Plugin description end -->
 
-See [NoColors](https://github.com/i582/phpcolor) tool.
+See [NoColor](https://github.com/i582/phpcolor) tool.
 
 ## Installation
 
 - Using IDE built-in plugin system:
 
-  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "NoColors"</kbd> >
+  <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>Marketplace</kbd> > <kbd>Search for "NoColor"</kbd> >
   <kbd>Install Plugin</kbd>
 
 - Manually:
 
-  Download the [latest release](https://github.com/i582/nocolors-phpstorm/releases/latest) and install it manually using
+  Download the [latest release](https://github.com/i582/nocolor-phpstorm/releases/latest) and install it manually using
   <kbd>Preferences</kbd> > <kbd>Plugins</kbd> > <kbd>⚙️</kbd> > <kbd>Install plugin from disk...</kbd>
 
 ## Features
