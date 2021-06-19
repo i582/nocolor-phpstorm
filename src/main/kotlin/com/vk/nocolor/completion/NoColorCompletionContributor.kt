@@ -23,9 +23,12 @@ class NoColorCompletionContributor : CompletionContributor() {
                     context: ProcessingContext,
                     resultSet: CompletionResultSet
                 ) {
+                    // disabled
+                    return
+
                     val tagNamePsi = parameters.position.parent.parent.firstChild
                     val tagName = tagNamePsi.text
-                    if (Palette.isColorTag(tagName)) {
+                    if (!Palette.isColorTag(tagName)) {
                         return
                     }
 
