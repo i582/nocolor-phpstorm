@@ -8,6 +8,8 @@ PhpStorm plugin that allows the IDE to understand the [concept of colors](https:
 
 See [NoColor](https://github.com/i582/phpcolor) tool.
 
+[Plugin in JetBrains repository](https://plugins.jetbrains.com/plugin/17054-nocolor). 
+
 ## Installation
 
 - Using IDE built-in plugin system:
