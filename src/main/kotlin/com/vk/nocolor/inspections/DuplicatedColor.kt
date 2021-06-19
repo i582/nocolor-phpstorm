@@ -66,7 +66,9 @@ class DuplicatedColor : PhpInspection() {
                     for (docColor in docColors) {
                         if (classDocColors.containsKey(docColor.key)) {
                             holder.registerProblem(
-                                docColor.value, "The method already implicitly has a '${docColor.key}' color, since it is set in the PHPDoc for the '${element.name}' class"
+                                docColor.value,
+                                "The method already implicitly has a '${docColor.key}' color, " +
+                                        "since it is set in the PHPDoc for the '${element.name}' class"
                             )
                         }
                     }

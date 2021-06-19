@@ -26,7 +26,8 @@ class PossibleSeveralColors : PhpInspection() {
                 val secondPart = parts[1]
                 val containsName = PaletteSingleton.instance.palette.containsColor(secondPart)
                 if (containsName) {
-                    holder.registerProblem(tag, "In @color tag is prohibited more than one color. Please use multiple tags")
+                    holder.registerProblem(tag, "In @color tag is prohibited more than one color. " +
+                            "Please use multiple tags")
                 }
             }
         }
