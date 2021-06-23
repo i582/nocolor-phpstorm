@@ -5,7 +5,7 @@
 
   <description><![CDATA[
 <p><b>About</b></p>
-<p>NoColor is a PhpStorm plugin that allows the IDE to understand the <a href="https://github.com/i582/phpcolor/blob/master/docs/concept_of_colors.md">concept of colors</a> for PHP.</p>
+<p>NoColor is a PhpStorm plugin that allows the IDE to understand the <a href="https://github.com/i582/nocolor/blob/master/docs/concept_of_colors.md">concept of colors</a> for PHP.</p>
 <br>
 <p><b>Features</b></p>
 <ul>
