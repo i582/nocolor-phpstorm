@@ -1,7 +1,7 @@
 <idea-plugin>
   <id>org.vk.nocolor</id>
   <name>NoColor</name>
-  <vendor email="p.makhnev@corp.vk.com" url="https://vk.com/petrmakhnev">Petr Makhnev</vendor>
+  <vendor email="mr.makhneff@gmail.com" url="https://vk.com/petrmakhnev">Petr Makhnev</vendor>
 
   <description><![CDATA[
 <p><b>About</b></p>
