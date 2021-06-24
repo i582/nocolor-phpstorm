@@ -14,6 +14,7 @@ import com.jetbrains.php.lang.psi.elements.impl.ArrayHashElementImpl
 import com.jetbrains.php.lang.psi.visitors.PhpRecursiveElementVisitor
 import org.jetbrains.annotations.NotNull
 import org.jetbrains.yaml.psi.YAMLKeyValue
+import org.jetbrains.yaml.psi.YAMLSequence
 import org.jetbrains.yaml.psi.YamlRecursivePsiElementVisitor
 
 class PaletteSingleton {
@@ -150,8 +151,13 @@ class Palette {
                 override fun visitKeyValue(@NotNull keyValue: YAMLKeyValue) {
                     super.visitKeyValue(keyValue)
 
-                    val keyNode = keyValue.key
-                    val keyTextWithQuotes = keyNode?.text ?: return
+                    val valueNode = keyValue.value ?: return
+                    if (valueNode is YAMLSequence) {
+                        return
+                    }
+
+                    val keyNode = keyValue.key ?: return
+                    val keyTextWithQuotes = keyNode.text ?: return
                     handleRawKeyText(keyTextWithQuotes, keyNode, cb)
                 }
             })
@@ -202,12 +208,16 @@ class Palette {
         keyNode: PsiElement,
         cb: (String, PsiElement) -> Boolean,
     ) {
-        // if empty "" or ''
-        if (keyTextWithQuotes.length == 2) {
+        if (keyTextWithQuotes.isEmpty()) {
             return
         }
 
-        val keyText = keyTextWithQuotes.slice(1 until keyTextWithQuotes.length - 1)
+        val keyText = if (keyTextWithQuotes[0] == '"' || keyTextWithQuotes[0] == '\'') {
+            keyTextWithQuotes.slice(1 until keyTextWithQuotes.length - 1)
+        } else {
+            keyTextWithQuotes
+        }
+
         val rawColors = keyText.split(' ')
         for (color in rawColors) {
             if (!cb(color, keyNode)) {
