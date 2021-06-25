@@ -4,6 +4,15 @@
 
 <!-- Plugin description -->
 PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/i582/phpcolor/blob/master/docs/concept_of_colors.md) for PHP.
+
+### Features
+
+- Quick jump to the rule in the palette;
+- Autocomplete color names;
+- Color checks; 
+- Rules checks;
+- Tips and checks associated with the special color `remover`.
+
 <!-- Plugin description end -->
 
 See [NoColor](https://github.com/i582/phpcolor) tool.
@@ -46,16 +55,24 @@ See [NoColor](https://github.com/i582/phpcolor) tool.
 
     <img width="500" alt="image" src="https://user-images.githubusercontent.com/51853996/121085605-c4070080-c7ea-11eb-8262-c351e1089ecc.png">
 
+  - Not allowed 'transparent' color in `@color` tag:
+
+    <img width="450" alt="image" src="https://user-images.githubusercontent.com/51853996/123413008-eb1b4b80-d5ba-11eb-9c48-b77d0cc4470c.png">
+
 - Rules checks:
 
   - Order:
 
-    <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/120958102-a6408980-c75f-11eb-9b00-0d6d6f4ac722.png">
+    <img width="600" alt="image" src="https://user-images.githubusercontent.com/51853996/123413649-b360d380-d5bb-11eb-8574-39e2deaa258e.png">
 
   - Structure:
 
     <img width="700" alt="image" src="https://user-images.githubusercontent.com/51853996/121086009-4ee7fb00-c7eb-11eb-9999-2079f59ee3cb.png">
 
+  - Not allowed 'transparent' color in rule:
+    
+    <img width="450" alt="image" src="https://user-images.githubusercontent.com/51853996/123413387-62e97600-d5bb-11eb-983e-aa6328dc0583.png">
+  
 - Tips and checks associated with the special color `remover`:
 
   - `remover` color description:

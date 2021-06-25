@@ -63,7 +63,7 @@ class Palette {
     }
 
     fun getColors(): Array<String> {
-        return colors.map { it }.toTypedArray()
+        return colors.map { it }.filter { it != "transparent" }.toTypedArray()
     }
 
     fun containsColor(color: String): Boolean {
@@ -251,5 +251,6 @@ class Palette {
             true
         }
         colors.add("remover")
+        colors.add("transparent")
     }
 }
