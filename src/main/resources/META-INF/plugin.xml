@@ -77,6 +77,16 @@
                      enabledByDefault="true" level="WARNING"
                      implementationClass="com.vk.nocolor.inspections.OtherColorsWithRemoverColor"/>
 
+    <localInspection language="PHP" groupName="NoColor plugin" shortName="TransparentColor"
+                     displayName="Transparent color"
+                     enabledByDefault="true" level="WARNING"
+                     implementationClass="com.vk.nocolor.inspections.TransparentColor"/>
+
+  <localInspection language="yaml" groupName="NoColor plugin" shortName="NotAllowedColorsInRules"
+                     displayName="Not allowed colors in rules"
+                     enabledByDefault="true" level="WARNING"
+                     implementationClass="com.vk.nocolor.inspections.NotAllowedColorsInRules"/>
+
     <localInspection language="yaml" groupName="NoColor plugin" shortName="InvalidRuleOrder"
                      displayName="Invalid rule order"
                      enabledByDefault="true" level="WARNING"
