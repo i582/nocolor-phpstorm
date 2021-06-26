@@ -5,7 +5,7 @@
 <!-- Plugin description -->
 PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/VKCOM/nocolor/blob/master/docs/introducing_colors.md) for PHP.
 
-### Features
+**Features**
 
 - Quick jump to the rule in the palette;
 - Autocomplete color names;
