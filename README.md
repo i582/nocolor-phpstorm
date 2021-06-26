@@ -3,7 +3,7 @@
 # NoColor plugin for PhpStorm
 
 <!-- Plugin description -->
-PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/i582/phpcolor/blob/master/docs/concept_of_colors.md) for PHP.
+PhpStorm plugin that allows the IDE to understand the [concept of colors](https://github.com/VKCOM/nocolor/blob/master/docs/introducing_colors.md) for PHP.
 
 ### Features
 
@@ -19,7 +19,7 @@ PhpStorm plugin that allows the IDE to understand the [concept of colors](https:
 
 The plugin provides various validations and also improves the development experience with color navigation.
 
-Find out more about NoColor tool [here](https://github.com/i582/nocolor).
+Find out more about NoColor tool [here](https://github.com/VKCOM/nocolor).
 
 You can also find this plugin on the official [JetBrains plugins](https://plugins.jetbrains.com/plugin/17054-nocolor) website.
 
@@ -89,5 +89,5 @@ You can also find this plugin on the official [JetBrains plugins](https://plugin
 
 ## License
 
-This project is under the **MIT License**. See the [LICENSE](	) file for the full license text.
+This project is under the **MIT License**. See the [LICENSE](https://github.com/i582/nocolor-phpstorm/blob/master/LICENSE) file for the full license text.
 
